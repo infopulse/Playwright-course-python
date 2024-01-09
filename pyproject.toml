@@ -1,0 +1,32 @@
+# pyproject.toml
+[project]
+name = "test-project-template"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "Template cab be used for creating new test projects as well as base for test automation learning"
+authors = [
+    { name = "Oleksii Ostapov", email = "oleksii.ostapov@infopulse.com" }
+]
+readme = "README.md"
+
+dependencies = [
+    "playwright==1.40.*",
+    "pytest>=7.4.3",
+    "pytest-playwright>=0.4.3",
+    "pytest-xdist>=3.5.0",
+    "python-dotenv==1.*"
+]
+
+[project.urls]
+homepage = "https://infopulse.com"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--base-url https://coffee-cart.app/ --numprocesses auto"
+testpaths = [
+    "tests",
+]
+markers = [
+    "smoke: marker for smoke tests",
+    "single: marker for tests cannot be executed in parallel"
+]
