@@ -5,4 +5,4 @@
 2. run `pip install .`
 
 ## Run tests
-run `pytest` to run all tests
+run `pytest` to run all tests in the project
