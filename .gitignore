@@ -1,6 +1,7 @@
 # IDE
 .idea
 __pycache__
+.venv
 
 # Project
 .env
