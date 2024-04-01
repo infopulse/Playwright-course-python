@@ -22,7 +22,7 @@ homepage = "https://infopulse.com"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--base-url https://coffee-cart.app/ --numprocesses 1"
+addopts = "--base-url https://coffee-cart.app/ --numprocesses 1 --headed"
 testpaths = [
     "tests",
 ]
