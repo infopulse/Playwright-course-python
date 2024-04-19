@@ -8,10 +8,10 @@ def test_users(browser: Browser):
     page2 = context2.new_page()
     page1.goto("https://coffee-cart.app")
     page2.goto("https://infopulse.com")
-    page1.pause()
+    # page1.pause()
 
     page3 = context1.new_page()
     page4 = context2.new_page()
     page3.goto("https://playwright.dev")
     page4.goto("https://python.org")
-    page1.pause()
+    # page1.pause()
