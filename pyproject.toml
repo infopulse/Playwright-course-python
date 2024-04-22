@@ -1,24 +1,23 @@
 # pyproject.toml
-[project]
+[tool.poetry]
 name = "test-project-template"
-version = "0.1.0"
-requires-python = ">=3.10"
+version = "0.10.0"
 description = "Template cab be used for creating new test projects as well as base for test automation learning"
-authors = [
-    { name = "Oleksii Ostapov", email = "oleksii.ostapov@infopulse.com" }
-]
+authors = ["Oleksii Ostapov <oleksii.ostapov@infopulse.com>"]
 readme = "README.md"
+package-mode = false
 
-dependencies = [
-    "playwright>=1.42.0",
-    "pytest>=7.4.3",
-    "pytest-playwright>=0.4.3",
-    "pytest-xdist>=3.5.0",
-    "pytest-dotenv>=0.5.2"
-]
+[tool.poetry.dependencies]
+python = "^3.11"
+playwright = "^1.43.0"
+pytest = "^8.1.1"
+pytest-playwright = "^0.4.4"
+pytest-xdist = "^3.5.0"
+pytest-dotenv = "^0.5.2"
 
-[project.urls]
-homepage = "https://infopulse.com"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
@@ -28,5 +27,7 @@ testpaths = [
 ]
 markers = [
     "smoke: marker for smoke tests",
-    "single: marker for tests cannot be executed in parallel"
+    "single: marker for tests cannot be executed in parallel",
+    "mobile: marker for mobile tests only",
+    "quality_gate: marker for tests that should be executed on quality gate",
 ]

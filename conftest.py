@@ -20,5 +20,5 @@ def auth(page: Page) -> Page:
 
 
 @fixture
-def menu(auth: Page) -> Page:
+def menu(auth: Page) -> Menu:
     yield Menu(auth)
