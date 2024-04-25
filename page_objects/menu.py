@@ -1,5 +1,6 @@
 from page_objects.base import Base
-from playwright.sync_api import Locator
+from playwright.sync_api import Locator, Route, Request
+from contextlib import contextmanager
 
 
 class Menu(Base):
@@ -8,3 +9,22 @@ class Menu(Base):
 
     def get_total(self) -> Locator:
         return self.page.locator('.pay')
+
+    @contextmanager
+    def intercept(self):
+        self.page.route(url="**/list.json", handler=Menu._intercept_handler)
+        yield
+        self.page.unroute(url="**/list.json")
+
+    @staticmethod
+    def _intercept_handler(route: Route, request: Request):
+        route.fulfill(status=200, json=[{
+            "name": "Irish Coffee",
+            "price": 20,
+            "recipe": [
+                {"name": "espresso", "quantity": 40},
+                {"name": "irish whiskey", "quantity": 15},
+                {"name": "whipped cream", "quantity": 10}
+            ]
+        }])
+

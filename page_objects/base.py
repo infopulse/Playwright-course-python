@@ -5,6 +5,9 @@ class Base:
     def __init__(self, page: Page):
         self.page = page
 
+    def goto(self, url, **kwargs):
+        self.page.goto(url, **kwargs)
+
     def navigate_to_menu(self) -> None:
         menu = self.page.locator('a[aria-label="Menu page"]')
         menu.click()
