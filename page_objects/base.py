@@ -5,7 +5,7 @@ from playwright.sync_api import Page, Locator, ConsoleMessage
 def get_log():
     log = logging.getLogger()
     log.setLevel(logging.INFO)
-    handler = logging.FileHandler('error.log')
+    handler = logging.FileHandler('test-results/error.log')
     formatter = logging.Formatter('%(asctime)s - %(message)s')
     handler.setFormatter(formatter)
     log.addHandler(handler)
