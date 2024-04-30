@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   # trigger from another repo
   repository_dispatch:
-    types: [ build_completed ]
+    types: [ on-demand-test ]
 
 jobs:
   test:
