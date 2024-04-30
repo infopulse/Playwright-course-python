@@ -1,0 +1,49 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  # manual trigger
+  workflow_dispatch:
+  # trigger from another repo
+  repository_dispatch:
+    types: [ build_completed ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      - name: Install Playwright browsers
+        run: |
+          poetry run playwright install
+
+      - name: Run tests
+        run: |
+          poetry run python -m pytest --tracing=retain-on-failure --base-url=$BASE_URL --maxfail=$MAX_FAIL --numprocesses $PROCESSES
+        env:
+          BASE_URL: 'https://coffee-cart.app/'
+          MAX_FAIL: 5
+          PROCESSES: 'auto'
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-traces
+          path: test-results/

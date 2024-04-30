@@ -21,7 +21,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--base-url https://coffee-cart.app/ --numprocesses 1 --headed"
+addopts = "--base-url https://coffee-cart.app/ --numprocesses 1"
 testpaths = [
     "tests",
 ]
