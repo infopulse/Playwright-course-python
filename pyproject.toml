@@ -21,7 +21,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--base-url https://coffee-cart.app/ --numprocesses 1"
+addopts = "--base-url https://coffee-cart.app/ --numprocesses auto"
 testpaths = [
     "tests",
 ]
@@ -31,3 +31,5 @@ markers = [
     "mobile: marker for mobile tests only",
     "quality_gate: marker for tests that should be executed on quality gate",
 ]
+log_cli = true
+log_cli_level = "INFO"

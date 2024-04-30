@@ -1,6 +1,6 @@
 from playwright.sync_api import expect
 from page_objects.menu import Menu
-import pytest
+from pytest import mark
 
 coffee_list = [("Espresso", "$10.00"),
                ("Espresso Macchiato", "$12.00"),
@@ -13,7 +13,8 @@ coffee_list = [("Espresso", "$10.00"),
                ("Cafe Breve", "$15.00")]
 
 
-@pytest.mark.parametrize("coffee,price", coffee_list, ids=[f"{x[0]}-{x[1]}" for x in coffee_list])
+@mark.smoke
+@mark.parametrize("coffee,price", coffee_list, ids=[f"{x[0]}-{x[1]}" for x in coffee_list])
 def test_coffee_1(menu, coffee, price):
     menu.add_coffee(coffee)
     expect(menu.get_cart()).to_have_text("cart (1)")

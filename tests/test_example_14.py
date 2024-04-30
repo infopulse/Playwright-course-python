@@ -1,6 +1,8 @@
+from pytest import mark
 from playwright.sync_api import Page, expect
 
 
+@mark.smoke
 def test_api(page: Page):
     response = page.request.get('/list.json')
     expect(response).to_be_ok()

@@ -1,3 +1,4 @@
+from pytest import mark
 from playwright.sync_api import Page, expect
 
 
@@ -9,6 +10,7 @@ def test_get_method_example(page: Page):
     expect(page.get_by_label("Cart page")).to_contain_text("cart (1)")
 
 
+@mark.smoke
 def test_locator_features_1(page: Page):
     page.goto('https://coffee-cart.app/')
     whisky = page.get_by_label('Whisky', exact=True)
