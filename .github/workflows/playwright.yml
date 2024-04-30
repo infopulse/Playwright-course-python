@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: playwright-general
 on:
   push:
     branches: [ main, master ]
@@ -30,13 +30,13 @@ jobs:
         run: |
           poetry install
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browsers (only chrome)
         run: |
-          poetry run playwright install
+          poetry run playwright install chrome
 
       - name: Run tests
         run: |
-          poetry run python -m pytest --tracing=retain-on-failure --base-url=$BASE_URL --maxfail=$MAX_FAIL --numprocesses $PROCESSES
+          poetry run python -m pytest --tracing=retain-on-failure --base-url=$BASE_URL --maxfail=$MAX_FAIL --numprocesses $PROCESSES --junit-xml=test-results/results.xml
         env:
           BASE_URL: 'https://coffee-cart.app/'
           MAX_FAIL: 5
