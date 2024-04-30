@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Playwright browsers (only chromium)
         run: |
-          poetry run playwright install chromium
+          poetry run playwright install firefox
 
       - name: Run tests
         run: |
