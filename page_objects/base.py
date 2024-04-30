@@ -15,6 +15,7 @@ def get_log():
 class Base:
     def __init__(self, page: Page):
         self.page = page
+        self.context = page.context
         self.log = get_log()
 
         self.page.on('console', self._console_handler)
@@ -31,10 +32,21 @@ class Base:
         menu.click()
         self.page.locator("[href='/'].router-link-active").wait_for(state='visible')
 
-    def navigate_to_cart(self) -> None:
-        cart = self.page.locator('a[aria-label="Cart page"]')
-        cart.click()
-        self.page.locator("[href='/cart'].router-link-active").wait_for(state='visible')
-
     def get_cart(self) -> Locator:
         return self.page.get_by_role('link', name='cart')
+
+    def navigate_to_cart(self, new_window=False) -> Page:
+        cart = self.get_cart()
+        if not new_window:
+            cart.click()
+            self.page.locator("[href='/cart'].router-link-active").wait_for(state='visible')
+            return self.page
+        else:
+            with self.context.expect_page() as page_info:
+                cart.click(button='middle')
+            page_2 = page_info.value
+            page_2.locator("[href='/cart'].router-link-active").wait_for(state='visible')
+            return page_2
+
+    def get_pages(self) -> list[Page]:
+        return self.page.context.pages

@@ -28,3 +28,10 @@ class Menu(Base):
             ]
         }])
 
+    def auto_decline_extra_coffee(self) -> None:
+        nah_button = self.page.get_by_text("Nah")
+
+        def handler():
+            nah_button.click()
+
+        self.page.add_locator_handler(nah_button, handler)
