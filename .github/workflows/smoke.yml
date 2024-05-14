@@ -28,10 +28,12 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run python -m pytest -m smoke --base-url=$BASE_URL --numprocesses $PROCESSES --junit-xml=test-results/results.xml
+          poetry run python -m pytest -m smoke --base-url=$BASE_URL --numprocesses $PROCESSES --junit-xml=test-results/results.xml --testomatio report
         env:
           BASE_URL: 'https://coffee-cart.app/'
           PROCESSES: 'auto'
+          TESTOMATIO: ${{ secrets.TESTOMATIO_API_KEY }}
+          TESTOMATIO_CODE_STYLE: 'pep8'
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

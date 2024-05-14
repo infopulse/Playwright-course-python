@@ -1,7 +1,6 @@
 import os
 from pytest import mark, fixture
 from playwright.sync_api import Page, expect, BrowserContext, Browser
-
 config = 'config.json'
 
 
@@ -9,7 +8,6 @@ config = 'config.json'
 def circus(browser: Browser):
     context = browser.new_context()
     page = context.new_page()
-
     page.goto('https://circus.qamania.org/')
     page.get_by_placeholder('Login').fill('a')
     page.get_by_placeholder('Password').fill('a')
@@ -22,16 +20,19 @@ def circus(browser: Browser):
         os.remove(config)
 
 
+@mark.testomatio('@T61663809')
 def test_api(circus):
     response = circus.request.get('http://circus.qamania.org/ws/performances')
     expect(response).to_be_ok()
 
 
+@mark.testomatio('@Te1411aff')
 def test_api_2(circus):
     response = circus.request.get('http://circus.qamania.org/ws/performances')
     expect(response).to_be_ok()
 
 
+@mark.testomatio('@T7c9596b1')
 @mark.browser_context_args(storage_state=config)
 def test_api_3(context: BrowserContext):
     response = context.request.get('http://circus.qamania.org/ws/performances')
