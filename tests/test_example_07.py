@@ -2,7 +2,7 @@ from pytest import mark
 from playwright.sync_api import Page, expect
 
 
-@mark.testomatio('@T14256e23')
+@mark.testomatio('@T7c5834ee')
 def test_get_method_example(page: Page):
     page.goto('https://coffee-cart.app/')
     espresso = page.get_by_label('Espresso', exact=True)
@@ -11,7 +11,7 @@ def test_get_method_example(page: Page):
     expect(page.get_by_label('Cart page')).to_contain_text('cart (1)')
 
 
-@mark.testomatio('@Tf99973d9')
+@mark.testomatio('@Tcaf419a4')
 @mark.smoke
 def test_locator_features_1(page: Page):
     page.goto('https://coffee-cart.app/')
@@ -20,14 +20,14 @@ def test_locator_features_1(page: Page):
     assert whisky.is_visible() == False
 
 
-@mark.testomatio('@Tf6108460')
+@mark.testomatio('@T60561550')
 def test_locator_features_2(page: Page):
     page.goto('https://coffee-cart.app/')
     espresso = page.get_by_label('Espresso')
     expect(espresso).to_have_count(3)
 
 
-@mark.testomatio('@Ta37ee819')
+@mark.testomatio('@Tc7b0eab9')
 def test_locator_features_3(page: Page):
     page.goto('https://coffee-cart.app/')
     espresso = page.get_by_label('Espresso')

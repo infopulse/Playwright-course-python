@@ -11,13 +11,13 @@ def manage_file():
     os.remove('test.txt')
 
 
-@mark.testomatio('@T33df4c3d')
+@mark.testomatio('@T1045e37e')
 def test_file_created(manage_file):
     with open('test.txt', 'w') as file:
         file.write('new text')
     assert os.path.exists('test.txt')
 
 
-@mark.testomatio('@Tf75e1d4a')
+@mark.testomatio('@Tddb794d0')
 def test_test_file_name(request):
     assert request.fspath.basename == 'test_example_03.py'

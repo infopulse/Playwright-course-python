@@ -2,7 +2,7 @@ from pytest import mark
 from playwright.sync_api import Page, expect
 
 
-@mark.testomatio('@T61663809')
+@mark.testomatio('@Tbb064df7')
 @mark.smoke
 def test_api(page: Page):
     response = page.request.get('/list.json')
@@ -12,7 +12,7 @@ def test_api(page: Page):
     expect(response).not_to_be_ok()
 
 
-@mark.testomatio('@T38fe3d79')
+@mark.testomatio('@Tc3ee4975')
 def test_coffee_14(menu):
     menu.add_coffee('Espresso')
     expect(menu.get_cart()).to_have_text('cart (1)')

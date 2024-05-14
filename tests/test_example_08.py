@@ -2,7 +2,7 @@ from pytest import mark
 from playwright.sync_api import Page, expect
 
 
-@mark.testomatio('@T23c06974')
+@mark.testomatio('@T2991e0f7')
 def test_selectors(page: Page):
     page.goto('https://coffee-cart.app/')
     espresso = page.locator('css=[data-test="Espresso"]')
@@ -13,7 +13,7 @@ def test_selectors(page: Page):
     expect(americano).to_be_visible()
 
 
-@mark.testomatio('@T20efb78e')
+@mark.testomatio('@Tc3e6a5fe')
 def test_tips_1(page: Page):
     page.goto('https://coffee-cart.app/')
     li_items = page.locator('li')
@@ -22,7 +22,7 @@ def test_tips_1(page: Page):
     expect(mocha).to_contain_text('mocha', ignore_case=True)
 
 
-@mark.testomatio('@T1f79aca5')
+@mark.testomatio('@Td4ab630b')
 def test_tips_2(page: Page):
     page.goto('https://coffee-cart.app/')
     cafe = page.get_by_label('Cafe')
@@ -34,7 +34,7 @@ def test_tips_2(page: Page):
     expect(late_not_masala).to_have_count(1)
 
 
-@mark.testomatio('@T24ae7721')
+@mark.testomatio('@Tc2adfcc5')
 def test_tips_3(page: Page):
     page.goto('https://coffee-cart.app/')
     page.get_by_label('Espresso', exact=True).click()

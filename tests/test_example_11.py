@@ -5,7 +5,7 @@ coffee_list = [('Espresso', '$10.00'), ('Espresso Macchiato', '$12.00'), ('Cappu
                                                                                                                         '$18.00'), ('Americano', '$7.00'), ('Cafe Latte', '$16.00'), ('Espresso Con Panna', '$14.00'), ('Cafe Breve', '$15.00')]
 
 
-@mark.testomatio('@Tc5c9b2ac')
+@mark.testomatio('@T8b271898')
 @mark.smoke
 @mark.parametrize('coffee,price', coffee_list, ids=[f'{x[0]}-{x[1]}' for x in coffee_list])
 def test_coffee_1(menu, coffee, price):

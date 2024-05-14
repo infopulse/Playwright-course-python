@@ -3,7 +3,7 @@ from playwright.sync_api import expect
 from page_objects.menu import Menu
 
 
-@mark.testomatio('@Tc5c9b2ac')
+@mark.testomatio('@T8b271898')
 def test_coffee_1(menu):
     menu.add_coffee('Espresso')
     expect(menu.get_cart()).to_have_text('cart (1)')

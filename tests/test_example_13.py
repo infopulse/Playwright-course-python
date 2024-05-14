@@ -2,13 +2,13 @@ from pytest import mark
 from playwright.sync_api import expect
 
 
-@mark.testomatio('@T18644010')
+@mark.testomatio('@T1038346e')
 def test_events_1(menu):
     menu.goto('https://coffee-cart.app/?breakable=1')
     menu.page.get_by_label('Espresso', exact=True).click()
 
 
-@mark.testomatio('@Te3a952b7')
+@mark.testomatio('@T2cd7d212')
 def test_events_2(menu):
     context = menu.page.context
     with context.expect_page() as page_info:
@@ -20,7 +20,7 @@ def test_events_2(menu):
     assert len(context.pages) == 1
 
 
-@mark.testomatio('@T2ce13b8d')
+@mark.testomatio('@T0862c3e5')
 def test_events_3(menu):
     nah_button = menu.page.get_by_text('Nah')
 
@@ -32,7 +32,7 @@ def test_events_3(menu):
     expect(menu.get_total()).to_contain_text('$100.00')
 
 
-@mark.testomatio('@T7cc376a6')
+@mark.testomatio('@T8919d0af')
 def test_events_5(menu):
     nah_button = menu.page.get_by_text('Nah')
     menu.add_coffee('Espresso')

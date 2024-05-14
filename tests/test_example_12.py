@@ -3,7 +3,7 @@ from playwright.sync_api import expect
 '\nWhen should I use intercept?\n- need a shortcut in test precondition\n- need to mock a network request to 3-rd party service\n- verify error from the BE handling\n- ...\n'
 
 
-@mark.testomatio('@T35ab9a90')
+@mark.testomatio('@T725f6ae5')
 def test_intercept(menu):
     with menu.intercept():
         menu.goto('https://coffee-cart.app/')

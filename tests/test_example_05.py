@@ -2,7 +2,7 @@ from pytest import mark
 from playwright.sync_api import Page, expect
 
 
-@mark.testomatio('@Tc289de28')
+@mark.testomatio('@T4b6005e0')
 def test_example(page: Page) -> None:
     page.goto('https://coffee-cart.app/')
     page.locator('[data-test="Espresso"]').click()
