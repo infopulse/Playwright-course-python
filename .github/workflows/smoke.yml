@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run python -m pytest -m smoke --base-url=$BASE_URL --ctrf test-results/report.json --numprocesses $PROCESSES --testomatio report
+          poetry run python -m pytest -m smoke --base-url=$BASE_URL --numprocesses $PROCESSES --testomatio report
         env:
           BASE_URL: 'https://coffee-cart.app/'
           PROCESSES: 'auto'
@@ -36,9 +36,9 @@ jobs:
           TESTOMATIO_CODE_STYLE: 'pep8'
         continue-on-error: true
 
-      - name: Generate Pretty Report
-        run: |
-          npx github-actions-ctrf test-results/report.json
+#      - name: Generate Pretty Report
+#        run: |
+#          npx github-actions-ctrf test-results/report.json
 
 #      - uses: actions/upload-artifact@v4
 #        if: ${{ !cancelled() }}

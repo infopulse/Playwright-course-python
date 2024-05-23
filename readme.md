@@ -48,6 +48,8 @@ Software to be tested is a https://coffee-cart.app/
 
 - There are examples of GitHub Actions workflows in [.github/workflows](.github/workflows) folder
 - There is integration with [Testomat.io](https://testomat.io/) to sync the test case and to report test results
-- There is a report in [CTRF](https://ctrf.io/) format added to generate nice report in the GitHub
 - Tests a prepared to run in parallel using pytest-xdsit
 - Tests are utilizing page object pattern
+
+## Plans
+- Add a report in [CTRF](https://ctrf.io/) format to generate nice report in the GitHub
