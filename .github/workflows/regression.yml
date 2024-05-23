@@ -36,16 +36,21 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run python -m pytest --tracing=retain-on-failure --base-url=$BASE_URL --maxfail=$MAX_FAIL --numprocesses $PROCESSES --junit-xml=test-results/results.xml  --testomatio report
+          poetry run python -m pytest --tracing=retain-on-failure --base-url=$BASE_URL --maxfail=$MAX_FAIL --numprocesses $PROCESSES --testomatio report --ctrf test-results/report.json
         env:
           BASE_URL: 'https://coffee-cart.app/'
           MAX_FAIL: 5
           PROCESSES: 'auto'
           TESTOMATIO: ${{ secrets.TESTOMATIO_API_KEY }}
           TESTOMATIO_CODE_STYLE: 'pep8'
+        continue-on-error: true
 
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: playwright-traces
-          path: test-results/
+      - name: Generate Pretty Report
+        run: |
+          npx github-actions-ctrf test-results/report.json
+
+#      - uses: actions/upload-artifact@v4
+#        if: ${{ !cancelled() }}
+#        with:
+#          name: playwright-traces
+#          path: test-results/
