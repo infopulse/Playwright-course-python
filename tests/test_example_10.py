@@ -2,8 +2,8 @@ from pytest import mark
 import pytest
 
 
-@mark.testomatio('@Ta5e9684b')
-@pytest.mark.browser_context_args(locale='en-GB', geolocation={'longitude': 12.492507, 'latitude': 41.889938}, permissions=['geolocation'], viewport={'width': 375, 'height': 812})
+@pytest.mark.browser_context_args(locale='en-GB', geolocation={'longitude': 12.492507, 'latitude': 41.889938},
+                                  permissions=['geolocation'], viewport={'width': 375, 'height': 812})
 def test_browser_context_args(page):
     page.goto('/')
 
@@ -17,6 +17,5 @@ def browser_context_args(browser_context_args, playwright, request: pytest.Fixtu
     return browser_context_args
 
 
-@mark.testomatio('@T1aab0c11')
 def test_mobile(page):
     page.goto('/')

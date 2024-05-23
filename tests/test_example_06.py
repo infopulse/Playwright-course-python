@@ -2,7 +2,6 @@ from pytest import mark
 from playwright.sync_api import Browser
 
 
-@mark.testomatio('@Tbe9372f1')
 def test_users(browser: Browser):
     context1 = browser.new_context()
     context2 = browser.new_context()
