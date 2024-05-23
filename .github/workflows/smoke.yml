@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run python -m pytest -m smoke --base-url=$BASE_URL -n $PROCESSES --testomatio report --ctrf test-results/report.json
+          poetry run python -m pytest -m smoke --base-url=$BASE_URL --ctrf test-results/report.json --numprocesses $PROCESSES --testomatio report
         env:
           BASE_URL: 'https://coffee-cart.app/'
           PROCESSES: 'auto'
