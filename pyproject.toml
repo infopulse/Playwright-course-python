@@ -1,7 +1,7 @@
 # pyproject.toml
 [tool.poetry]
 name = "test-project-template"
-version = "0.10.0"
+version = "1.0.0"
 description = "Template cab be used for creating new test projects as well as base for test automation learning"
 authors = ["Oleksii Ostapov <oleksii.ostapov@infopulse.com>"]
 readme = "README.md"
