@@ -22,6 +22,14 @@ solve all your problems.
 - Automate API testing for flawless integration
 - Create automated **quality gate** before UAT testing
 
+## Test Automation limitations
+Do not start automation testing if...
+- You are doing a project with a lot of changes. You will spend more time updating tests than writing new features.
+- You are doing a project with a lot of UI changes. UI tests are the most fragile and hard to maintain.
+- You are doing a project with a lot of manual testing. Manual testing is still needed and should be done by a human. And it is usually cheaper ¯\_(ツ)_/¯
+- You don't have experts to do or to validate automation testing.
+- You don't have time to do automation testing. It is not a quick task. It is a long term investment.
+
 ## About the course
 
 Materials to help you get started with test automation using pytest and playwright.  
@@ -34,6 +42,7 @@ Software to be tested is a https://coffee-cart.app/
 3. install poetry `pip install poetry`
 4. run `poetry install` to install all dependencies
 5. install Playwright browsers `playwright install`
+6. to update dependecies if new versions are available or new dependencies are added run `poetry update`
 
 ## Run tests
 
